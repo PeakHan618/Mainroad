@@ -30,14 +30,14 @@ to install **Mainroad**.*
 From your project's root directory, run:
 
 ```
-git clone https://github.com/vimux/mainroad.git themes/mainroad
+git clone https://github.com/peakhan618/mainroad.git themes/mainroad
 ```
 
 Or, if you don't plan to make any significant changes but want to track and update the theme, you can add it as a git
 submodule via the following command:
 
 ```
-git submodule add https://github.com/vimux/mainroad.git themes/mainroad
+git submodule add https://github.com/peakhan618/mainroad.git themes/mainroad
 ```
 
 Next, open `config.toml` in the base of the Hugo site and ensure the theme option is set to `mainroad`:
