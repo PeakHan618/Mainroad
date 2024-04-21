@@ -1,5 +1,22 @@
-{{ if and .Site.Config.Services.Disqus.Shortname (index .Params "comments" | default "true") (not .Site.IsServer) }}
-<section class="comments">
-	{{ template "_internal/disqus.html" . }}
-</section>
-{{ end }}
+{{- if isset .Site.Params "comment" }}
+  {{- $comment := .Site.Params.comment -}}
+  {{- if $comment.enable -}}
+    {{- $giscus := $comment.giscus -}}
+    {{- if $giscus.enable -}}
+      <div id="giscus" class="comment"></div>
+      <script src="https://giscus.app/client.js"
+              data-repo="{{ $giscus.repo }}"
+              data-repo-id="{{ $giscus.repoId }}"
+              data-category="{{ $giscus.category }}"
+              data-category-id="{{ $giscus.categoryId }}"
+              data-mapping="pathname"
+              data-reactions-enabled="{{ $giscus.reactionsEnabled }}"
+              data-emit-metadata="{{ $giscus.emitMetadata }}"
+              data-input-position="{{ $giscus.inputPosition }}"
+              data-theme="{{ if .Site.Params.darkMode }}{{ $giscus.darkTheme }}{{ else }}{{ $giscus.lightTheme }}{{ end }}"
+              data-lang="{{ $giscus.lang }}"
+              crossOrigin="anonymous"
+              async></script>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
