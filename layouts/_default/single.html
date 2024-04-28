@@ -1,5 +1,6 @@
 {{ define "main" }}
 <main class="main" role="main">
+	<!-- <article class="post" style="margin-right: 25%;"> -->
 	<article class="post">
 		<header class="post__header">
 			<h1 class="post__title">{{ .Title }}</h1>
@@ -18,11 +19,13 @@
 		{{- if .Params.tags }}
 		<footer class="post__footer">
 			{{ partial "post_tags.html" . }}
+			{{ partial "authorbox.html" . }}
+			{{ partial "comments.html" . }}
 		</footer>
 		{{- end }}
 	</article>
 </main>
-{{ partial "authorbox.html" . }}
 {{ partial "pager.html" . }}
-{{ partial "comments.html" . }}
 {{ end }}
+
+
